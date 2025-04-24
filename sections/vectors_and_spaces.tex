@@ -105,9 +105,8 @@
 	which tells us that any given vector in $\mathbb{R}^3$ can be represented
 	in a specific linear combination of $S$. This can be thought of intuitively as well:
 	if $S$ is linearly independent, each vector of $S$ introduces
-	new directionality; for any two given vectors
-	$\vect{v_i}, \vect{v_j} \in S$, there does not exist a scalar $c$
-	such that $c\vect{v_i}=\vect{v_j}$.
+	new directionality; there is no vector in $S$ that can be defined as a linear
+	combination of the other vectors.
 \end{solution}
 
 \subsection{Linear subspaces}
@@ -123,6 +122,7 @@
 		\forall\ \vect{v_1}, \vect{v_2} \in V, \vect{v_1} + \vect{v_2} \in & V
 	\end{align*}
 \end{definition}
+
 
 \begin{theorem}
 	Let $V=\{ \vect{v_1}, \vect{v_2}, \ldots , \vect{v_n} \}$. It holds true that
@@ -173,5 +173,10 @@
 	Again, $(c_i+d_i)$ is just a scalar, meaning $\vect{a}+\vect{b}$ is another linear combination of $V$:
 	$$\vect{a}+\vect{b} \in \operatorname{span}(V)$$
 \end{proof}
+
+\begin{definition}[Basis]
+	Let $S = \{ \vect{v_1}, \vect{v_2}, \ldots , \vect{v_n} \}$ be linearly independent.
+	It follows that S is a \textit{basis} for the subspace $V = \operatorname{span}(S)$.
+\end{definition}
 
 \end{document}
