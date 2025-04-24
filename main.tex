@@ -1,0 +1,35 @@
+\documentclass[11pt, letterpaper]{article}
+\usepackage{amsmath, amssymb, amsfonts, amsthm}
+\usepackage{float, bm}
+\usepackage[margin=1in]{geometry}
+\usepackage{subfiles}
+
+\newtheorem{theorem}{Theorem}[section]
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
+\theoremstyle{definition}
+\newtheorem{example}{Example}[section]
+
+\theoremstyle{definition}
+\newtheorem{solution}{Solution}[section]
+
+\setlength{\parskip}{8pt}
+\parindent 0px
+
+\newcommand{\vect}[1]{\ensuremath{\mathbf{#1}}} % vectors
+
+\title{Linear Algebra Notes}
+\author{Stanley Li}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Vectors and Spaces}
+
+\subfile{sections/vectors_and_spaces.tex}
+
+\end{document}
