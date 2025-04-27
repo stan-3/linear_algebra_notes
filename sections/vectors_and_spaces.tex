@@ -332,16 +332,19 @@ of collinearity.
 \begin{proof}
 	Let $\vect{x}, \vect{y} \in \mathbb{R}^n$.
 	By the Cauchy-Schwarz inequality (Theorem \ref{cauchy_schwarz}),
-	$$\|\vect{x}\|\|\vect{y}\|\geq |\vect{x}\cdot\vect{y}|$$
+	$$\|\vect{x}\|\|\vect{y}\|\geq |\vect{x}\cdot\vect{y}|\geq\vect{x}\cdot\vect{y}$$
 	Note that $|\vect{x}\cdot\vect{y}|=\vect{x}\cdot\vect{y}$ if and only if
 	$\vect{x}\cdot\vect{y}\geq0$. Else, $|\vect{x}\cdot\vect{y}|>\vect{x}\cdot\vect{y}$.
-	$$\|\vect{x}\|\|\vect{y}\|\geq |\vect{x}\cdot\vect{y}|\geq\vect{x}\cdot\vect{y}$$
+	Additionally, $|\vect{x}\cdot\vect{y}|=\|\vect{x}\|\|\vect{y}\|$ if and only if
+	$\vect{y}=c\vect{x}$ for some $c \in \mathbb{R}$, as stated in the Cauchy-Schwarz inequality.
+	So, if $c\geq0$ and $\vect{y}=c\vect{x}$, then
+	$\vect{x}\cdot\vect{y}=|\vect{x}\cdot\vect{y}|=\|\vect{x}\|\|\vect{y}\|$.
+
 	Now, consider the following:
 	$$\|\vect{x} + \vect{y}\|^2  = \|\vect{x}\|^2+2(\vect{x}\cdot\vect{y})+\|\vect{y}\|^2 $$
 	Since $\|\vect{x}\|\|\vect{y}\|\geq\vect{x}\cdot\vect{y}$,
 	we can create the inequality $\|\vect{x}+\vect{y}\|^2\leq\|\vect{x}\|^2+2\|\vect{x}\|\|\vect{y}\|+\|\vect{y}\|^2$.
-	Note that this inequality becomes an equality if and only if $\vect{y}=c\vect{x}$
-	for some $c \in \mathbb{R}$ such that $c>0$.
+	Note that this inequality becomes an equality if and only if $\vect{y}=c\vect{x}$.
 	\begin{align*}
 		\|\vect{x}+\vect{y}\|^2   & \leq\ |\vect{x}\|^2+2\|\vect{x}\|\|\vect{y}\|+\|\vect{y}\|^2 \\
 		\|\vect{x} + \vect{y}\|^2 & \leq (\|\vect{x}\|+\|\vect{y}\|)^2                           \\
