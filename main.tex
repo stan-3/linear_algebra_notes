@@ -1,11 +1,17 @@
 \documentclass[11pt, letterpaper]{article}
+\usepackage{bookmark}
 \usepackage{amsmath, amssymb, amsfonts, amsthm}
-\usepackage{float, bm}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{float, bm, gensymb}
 \usepackage[margin=1in]{geometry}
 \usepackage{subfiles}
 \usepackage{hyperref}
 
+\graphicspath{{./images/}}
+
 \newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}{Lemma}[section]
 
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}[section]
@@ -16,10 +22,16 @@
 \theoremstyle{definition}
 \newtheorem{solution}{Solution}[section]
 
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+
+\renewcommand\qedsymbol{$\blacksquare$}
+
 \setlength{\parskip}{8pt}
 \parindent 0px
 
-\newcommand{\vect}[1]{\ensuremath{\mathbf{#1}}} % vectors
+\newcommand{\vect}[1]{\ensuremath{\mathbf{#1}}}
+\newcommand{\uvec}[1]{\ensuremath{\hat{#1}}}
 
 \title{Linear Algebra Notes}
 \author{Stanley Li}
