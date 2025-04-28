@@ -225,7 +225,7 @@ These properties can be easily proven with the definition of the dot product.
 
 The dot product of two vectors can also
 be represented in relation to the angle between them, $\theta$, by
-the following: $\vect{a} \cdot \vect{b} = \|\vect{a}\| \|\vect{b}\| \cos (\theta)$.
+the following identity: $\vect{a} \cdot \vect{b} = \|\vect{a}\| \|\vect{b}\| \cos (\theta)$.
 
 \begin{figure}[H]
 	\centering
@@ -344,7 +344,8 @@ of collinearity.
 	$$\|\vect{x} + \vect{y}\|^2  = \|\vect{x}\|^2+2(\vect{x}\cdot\vect{y})+\|\vect{y}\|^2 $$
 	Since $\|\vect{x}\|\|\vect{y}\|\geq\vect{x}\cdot\vect{y}$,
 	we can create the inequality $\|\vect{x}+\vect{y}\|^2\leq\|\vect{x}\|^2+2\|\vect{x}\|\|\vect{y}\|+\|\vect{y}\|^2$.
-	Note that this inequality becomes an equality if and only if $\vect{y}=c\vect{x}$.
+	For the reason previously mentioned, this inequality becomes an equality
+	if and only if $\vect{y}=c\vect{x}$ where $c\geq0$.
 	\begin{align*}
 		\|\vect{x}+\vect{y}\|^2   & \leq\ |\vect{x}\|^2+2\|\vect{x}\|\|\vect{y}\|+\|\vect{y}\|^2 \\
 		\|\vect{x} + \vect{y}\|^2 & \leq (\|\vect{x}\|+\|\vect{y}\|)^2                           \\
@@ -372,4 +373,51 @@ of collinearity.
 			b_1           & b_2           & b_3
 		\end{vmatrix}$$
 \end{remark}
+
+\subsubsection{Properties}
+
+Cross products are anticommutative ($\vect{a}\times\vect{b}=-(\vect{b}\times\vect{a})$),
+distributive ($\vect{a}\times(\vect{b}+\vect{c})=(\vect{a}\times\vect{b})+(\vect{a}\times\vect{c})$),
+and associative with scalars ($c(\vect{a}\times\vect{b})=(c\vect{a})\times\vect{b}=\vect{a}\times(c\vect{b})$).
+They are not associative themselves. These properties can be proven from the definition
+of the cross product.
+
+\subsubsection{Geometric representation}
+
+\begin{theorem}
+	If $\vect{a}\times\vect{b}=\vect{c}$, then
+	$\vect{c}$ is orthogonal to both $\vect{a}$ and $\vect{b}$.
+\end{theorem}
+
+\begin{proof}
+	Let $\vect{a}, \vect{b} \in \mathbb{R}^3$.
+	$$\vect{a}\times\vect{b} =\begin{bmatrix}a_2b_3-a_3b_2\\a_3b_1-a_1b_3\\a_1b_2-a_2b_1\end{bmatrix}=\vect{c}$$
+	\begin{align*}
+		\vect{a}\cdot\vect{c} & =a_1(a_2b_3-a_3b_2)+a_2(a_3b_1-a_1b_3)+a_3(a_1b_2-a_2b_1)    \\
+		                      & =a_1a_2b_3-a_1a_3b_2+a_2a_3b_1-a_1a_2b_3+a_1a_3b_2-a_2a_3b_1 \\
+		                      & =0                                                           \\
+		\vect{b}\cdot\vect{c} & =b_1(a_2b_3-a_3b_2)+b_2(a_3b_1-a_1b_3)+b_3(a_1b_2-a_2b_1)    \\
+		                      & =a_2b_1b_3-a_3b_1b_2+a_3b_1b_2-a_1b_2b_3+a_1b_2b_3-a_2b_1b_3 \\
+		                      & =0
+	\end{align*}
+\end{proof}
+
+The direction of the normal vector obtained from the cross product $\vect{a}\times\vect{b}$
+can be determined using the right-hand rule: point your index finger in
+the direction of $\vect{a}$, then point your middle finger in the direction of
+$\vect{b}$, then stick out your thumb. Your thumb represents the direction of the
+normal vector.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=150px]{Right_hand_rule_cross_product.svg.png}
+	\caption{The right-hand rule}
+\end{figure}
+
+Similar to the dot product, the cross product of two vectors can also
+be represented in relation to the angle between them, $\theta$,
+by the following identity: $\|\vect{a}\times\vect{b}\|=\|\vect{a}\|\|\vect{b}\|\sin (\theta)$.
+
+\begin{proof}
+\end{proof}
 \end{document}
