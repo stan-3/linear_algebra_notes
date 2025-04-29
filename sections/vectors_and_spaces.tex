@@ -81,17 +81,14 @@
 \end{example}
 
 \begin{solution}
-	$$\begin{bmatrix} 1 \\ -1 \\ 2 \end{bmatrix}c_1
+	\[\begin{bmatrix} 1 \\ -1 \\ 2 \end{bmatrix}c_1
 		+ \begin{bmatrix} 2 \\ 1 \\ 3 \end{bmatrix}c_2
-		+ \begin{bmatrix} -1 \\ 0 \\ 2 \end{bmatrix}c_3 = 0$$
-
-	\begin{equation*}
-		\begin{split}
-			c_1+2c_2-c_3   & =    \ 0     \\
-			-c_1+c_2       & =        \ 0 \\
-			2c_1+3c_2+2c_3 & =  \ 0
-		\end{split}
-	\end{equation*}
+		+ \begin{bmatrix} -1 \\ 0 \\ 2 \end{bmatrix}c_3 = 0\]
+	\begin{align*}
+		c_1+2c_2-c_3   & =    \ 0     \\
+		-c_1+c_2       & =        \ 0 \\
+		2c_1+3c_2+2c_3 & =  \ 0
+	\end{align*}
 
 	Solving this system, we find that the only solution is
 	$c_1=c_2=c_3=0$. Thus, $S$ is linearly independent. \qedsymbol
@@ -137,21 +134,21 @@ combination of the other vectors.
 	1. Inclusion of zero vector:
 	\begin{center}
 		Let $c_1, c_2, \ldots , c_n=0$.
-		$$\implies c_1\vect{v_1} + c_2\vect{v_2} + \dots + c_n\vect{v_n}=\vect{0}$$
-		$$\implies \vect{0} \in \operatorname{span}(V)$$
+		\[\implies c_1\vect{v_1} + c_2\vect{v_2} + \dots + c_n\vect{v_n}=\vect{0}\]
+		\[\implies \vect{0} \in \operatorname{span}(V)\]
 	\end{center}
 
 	2. Closure under scalar multiplication:
 	\begin{center}
 		Let $\vect{a} \in \operatorname{span}(V)$.
-		$$\iff c_1\vect{v_1} + c_2\vect{v_2} + \dots + c_n\vect{v_n}=\vect{a}$$
-		$$d(c_1\vect{v_1} + c_2\vect{v_2} + \dots + c_n\vect{v_n})=d\vect{a}\ \textnormal{where}\ d \in \mathbb{R}$$
-		$$\implies dc_1\vect{v_1} + dc_2\vect{v_2} + \dots + dc_n\vect{v_n}=d\vect{a}$$
+		\[\iff c_1\vect{v_1} + c_2\vect{v_2} + \dots + c_n\vect{v_n}=\vect{a}\]
+		\[d(c_1\vect{v_1} + c_2\vect{v_2} + \dots + c_n\vect{v_n})=d\vect{a}\ \textnormal{where}\ d \in \mathbb{R}\]
+		\[\implies dc_1\vect{v_1} + dc_2\vect{v_2} + \dots + dc_n\vect{v_n}=d\vect{a}\]
 	\end{center}
 
 	$dc_i$ is just a scalar, meaning $d\vect{a}$ is another
 	linear combination of $V$:
-	$$d\vect{a} \in \operatorname{span}(V)$$
+	\[d\vect{a} \in \operatorname{span}(V)\]
 
 	3. Closure under addition:
 	\begin{align*}
@@ -162,7 +159,7 @@ combination of the other vectors.
 	\end{align*}
 
 	Again, $(c_i+d_i)$ is just a scalar, meaning $\vect{a}+\vect{b}$ is another linear combination of $V$:
-	$$\vect{a}+\vect{b} \in \operatorname{span}(V)$$
+	\[\vect{a}+\vect{b} \in \operatorname{span}(V)\]
 \end{proof}
 
 \begin{definition}[Basis]
@@ -322,7 +319,7 @@ of collinearity.
 \begin{proof}
 	Let $\vect{x}, \vect{y} \in \mathbb{R}^n$.
 	By the Cauchy-Schwarz inequality (Theorem \ref{cauchy_schwarz}),
-	$$\|\vect{x}\|\|\vect{y}\|\geq |\vect{x}\cdot\vect{y}|\geq\vect{x}\cdot\vect{y}$$
+	\[\|\vect{x}\|\|\vect{y}\|\geq |\vect{x}\cdot\vect{y}|\geq\vect{x}\cdot\vect{y}\]
 	Note that $|\vect{x}\cdot\vect{y}|=\vect{x}\cdot\vect{y}$ if and only if
 	$\vect{x}\cdot\vect{y}\geq0$. Else, $|\vect{x}\cdot\vect{y}|>\vect{x}\cdot\vect{y}$.
 	Additionally, $|\vect{x}\cdot\vect{y}|=\|\vect{x}\|\|\vect{y}\|$ if and only if
@@ -331,7 +328,7 @@ of collinearity.
 	$\vect{x}\cdot\vect{y}=|\vect{x}\cdot\vect{y}|=\|\vect{x}\|\|\vect{y}\|$.
 
 	Now, consider the following:
-	$$\|\vect{x} + \vect{y}\|^2  = \|\vect{x}\|^2+2(\vect{x}\cdot\vect{y})+\|\vect{y}\|^2 $$
+	\[\|\vect{x} + \vect{y}\|^2  = \|\vect{x}\|^2+2(\vect{x}\cdot\vect{y})+\|\vect{y}\|^2 \]
 	Since $\|\vect{x}\|\|\vect{y}\|\geq\vect{x}\cdot\vect{y}$,
 	we can create the inequality $\|\vect{x}+\vect{y}\|^2\leq\|\vect{x}\|^2+2\|\vect{x}\|\|\vect{y}\|+\|\vect{y}\|^2$.
 	For the reason previously mentioned, this inequality becomes an equality
@@ -357,11 +354,11 @@ of collinearity.
 \begin{remark}
 	A way to easily remember how to calculate the cross product is by writing
 	it as a determinant (covered in Section ??):
-	$$\vect{a}\times\vect{b}=\begin{vmatrix}
+	\[\vect{a}\times\vect{b}=\begin{vmatrix}
 			\uvec{\imath} & \uvec{\jmath} & \uvec{k} \\
 			a_1           & a_2           & a_3      \\
 			b_1           & b_2           & b_3
-		\end{vmatrix}$$
+		\end{vmatrix}\]
 \end{remark}
 
 \subsubsection{Properties}
@@ -381,7 +378,7 @@ of the cross product.
 
 \begin{proof}
 	Let $\vect{a}, \vect{b} \in \mathbb{R}^3$.
-	$$\vect{a}\times\vect{b} =\begin{bmatrix}a_2b_3-a_3b_2\\a_3b_1-a_1b_3\\a_1b_2-a_2b_1\end{bmatrix}=\vect{c}$$
+	\[\vect{a}\times\vect{b} =\begin{bmatrix}a_2b_3-a_3b_2\\a_3b_1-a_1b_3\\a_1b_2-a_2b_1\end{bmatrix}=\vect{c}\]
 	\begin{align*}
 		\vect{a}\cdot\vect{c} & =a_1(a_2b_3-a_3b_2)+a_2(a_3b_1-a_1b_3)+a_3(a_1b_2-a_2b_1)    \\
 		                      & =a_1a_2b_3-a_1a_3b_2+a_2a_3b_1-a_1a_2b_3+a_1a_3b_2-a_2a_3b_1 \\
@@ -409,5 +406,64 @@ be represented in relation to the angle between them, $\theta$,
 by the following identity: $\|\vect{a}\times\vect{b}\|=\|\vect{a}\|\|\vect{b}\|\sin (\theta)$.
 
 \begin{proof}
+	Let $\vect{a}, \vect{b} \in \mathbb{R}^3$.
+	\begin{align*}
+		\vect{a}\times\vect{b}       & =\begin{bmatrix}a_2b_3-a_3b_2\\a_3b_1-a_1b_3\\a_1b_2-a_2b_1\end{bmatrix}                                     \\
+		\|\vect{a}\times\vect{b}\|^2 & =(a_2b_3-a_3b_2)^2+(a_3b_1-a_1b_3)^2+(a_1b_2-a_2b_1)^2                                                       \\
+		                             & =a_2^2b_3^2-2a_2a_3b_2b_3+a_3^2b_2^2+a_3^2b_1^2-2a_1a_3b_1b_3+a_1^2b_3^2+a_1^2b_2^2-2a_1a_2b_1b_2+a_2^2b_1^2 \\
+		                             & =a_1^2(b_3^2+b_2^2)+a_2^2(b_3^2+b_1^2)+a_3^2(b_2^2+b_1^2)-2(a_2a_3b_2b_3+a_1a_3b_1b_3+a_1a_2b_1b_2)          \\
+	\end{align*}
+	\begin{align*}
+		\|\vect{a}\|\|\vect{b}\|\cos (\theta)       & =a_1b_1+a_2b_2+a_3b_3                                                                   \\
+		\|\vect{a}\|^2\|\vect{b}\|^2\cos^2 (\theta) & =(a_1b_1+a_2b_2+a_3b_3)^2                                                               \\
+		                                            & =a_1^2b_1^2+a_1a_2b_1b_2+a_1a_3b_1b_3+a_1a_2b_1b_2+a_2^2b_2^2+a_2a_3b_2b_3+a_1a_3b_1b_3 \\
+		                                            & \qquad +a_2a_3b_2b_3+a_3^2b_3^2                                                         \\
+		                                            & =a_1^2b_1^2+a_2^2b_2^2+a_3^2b_3^2+2(a_1a_2b_1b_2+a_1a_3b_1b_3+a_2a_3b_2b_3)
+	\end{align*}
+	\begin{align*}
+		\|\vect{a}\times\vect{b}\|^2+\|\vect{a}\|^2\|\vect{b}\|^2\cos (\theta) & =a_1^2(b_3^2+b_2^2)+a_2^2(b_3^2+b_1^2)+a_3^2(b_2^2+b_1^2)+a_1^2b_1^2+a_2^2b_2^2+a_3^2b_3^2 \\
+		                                                                       & =a_1^2(b_1^2+b_2^2+b_3^2)+a_2^2(b_1^2+b_2^2+b_3^2)+a_3^2(b_1^2+b_2^2+b_3^2)                \\
+		                                                                       & =(b_1^2+b_2^2+b_3^2)(a_1^2+a_2^2+a_3^2)                                                    \\
+		                                                                       & =(b_1^2+b_2^2+b_3^2)(a_1^2+a_2^2+a_3^2)                                                    \\
+		                                                                       & =\|\vect{b}\|^2\|\vect{a}\|^2
+	\end{align*}
+	\begin{align*}
+		\|\vect{a}\times\vect{b}\|^2+\|\vect{a}\|^2\|\vect{b}\|^2\cos (\theta) & =\|\vect{a}\|^2\|\vect{b}\|^2                    \\
+		\|\vect{a}\times\vect{b}\|^2                                           & =\|\vect{a}\|^2\|\vect{b}\|^2(1-\cos^2 (\theta)) \\
+		\|\vect{a}\times\vect{b}\|^2                                           & =\|\vect{a}\|^2\|\vect{b}\|^2\sin^2 (\theta)     \\
+		\|\vect{a}\times\vect{b}\|                                             & =\|\vect{a}\|\|\vect{b}\|\sin^2 (\theta)
+	\end{align*}
+\end{proof}
+
+\subsubsection{Interpretation}
+
+From the geometric representation of the cross product, it is evident that
+$\|\vect{a}\times\vect{b}\|$ is maximized when $\theta=90\degree$ and $\|\vect{a}\times\vect{b}\|=0$
+when $\theta=0\degree$. This means that the cross product can be interpreted to be
+a measure of perpendicularity; its magnitude is maximized when $\vect{a}$ and $\vect{b}$
+are perpendicular and minimized when they are collinear.
+
+\begin{theorem}
+	If $\vect{a}, \vect{b} \in \mathbb{R}^3$, then $\|\vect{a}\times\vect{b}\|$
+	is equal to the area of the parallelogram formed with sides $\vect{a}$ and $\vect{b}$.
+\end{theorem}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=150px]{Cross_product_parallelogram.svg.png}
+	\caption{The area of the parallelogram with sides $\vect{a}$ and $\vect{b}$ is $\|\vect{a}\times\vect{b}\|$.}
+\end{figure}
+
+\begin{proof}
+	Let $\vect{a}, \vect{b} \in \mathbb{R}^3$ form a parallelogram with
+	base $\|\vect{b}\|$ and height $h$. It follows that\\
+	$h=\|\vect{a}\|\sin (\theta)$.
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=150px]{cross_product_parallelogram_area_fig_00.jpg}
+		\caption{The parallelogram constructed by $\vect{a}$ and $\vect{b}$ with height $h=\|\vect{a}\|\sin (\theta)$.}
+	\end{figure}
+	The area of the parallelogram, given by its base times its height,
+	is then $\|\vect{a}\|\|\vect{b}\|\sin (\theta)=\|\vect{a}\times\vect{b}\|$.
 \end{proof}
 \end{document}
