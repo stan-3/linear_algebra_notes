@@ -466,4 +466,49 @@ are perpendicular and minimized when they are collinear.
 	The area of the parallelogram, given by its base times its height,
 	is then $\|\vect{a}\|\|\vect{b}\|\sin (\theta)=\|\vect{a}\times\vect{b}\|$.
 \end{proof}
+
+\subsection{Planes in \texorpdfstring{$\mathbb{R}^3$}{R3}}
+
+The general equation of a plane is $Ax+By+Cz=D$ where $A$, $B$, $C$, and $D$ are constants.
+
+\textbf{Finding the general equation of a plane.} To start, we use the fact
+that $\vect{n}\cdot (\vect{x}-\vect{x_0})=0$ where $\vect{n}$ is the vector
+normal to the plane, $\vect{x}$ is an arbitrary vector specifying a point
+on the plane, and $\vect{x_0}$ is a vector specifying a known point on the
+plane. Notice that the vector $\vect{x}-\vect{x_0}$ lies on the plane so
+its dot product with the normal vector will be zero.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=150px]{Plane and Normal Vector.png}
+	\caption{A plane with points $(x, y, z)$ and $(x_0,y_0,z_0)$ and normal vector $\vect{n}$.}
+\end{figure}
+
+\begin{align*}
+	\vect{n}\cdot(\vect{x}-\vect{x_0})                                                            & =0                    \\
+	\begin{bmatrix}n_1\\n_2\\n_3\end{bmatrix}\cdot\begin{bmatrix}x-x_0\\y-y_0\\z-z_0\end{bmatrix} & =0                    \\
+	n_1x-n_1x_0+n_2y-n_2y_0+n_3z-n_3z_0                                                           & =0                    \\
+	n_1x+n_2y+n_3z                                                                                & =n_1x_0+n_2y_0+n_3z_0
+\end{align*}
+From this result, we can see that $A=n_1$, $B=n_2$, $C=n_3$, and
+$D=n_1x_0+n_2y_0+n_3z_0$. Note that if we keep the normal vector the same
+but change the point $\vect{x_0}$ (i.e. creating a parallel plane),
+then the only value that changes is $D$. This means that changing $D$
+will only shift the plane while keeping it parallel.
+
+\textbf{Finding the minimum distance between a point and a plane.} Suppose
+$\vect{x_1} \in \mathbb{R}^3$ specifies a point that is not necessarily
+on the plane $Ax+By+Cz=D$. Let $d$ be the minimum distance from
+the plane to $\vect{x_1}$. This implies that $\vect{d}$ is normal to
+the plane. Let $\vect{x_0}$ specify a point on the plane. Let
+$\vect{f}=\vect{x_1}-\vect{x_0}$. Let $\theta$ be the angle between $d$ and $\vect{f}$.
+Let $\vect{n}$ be a normal vector to the plane.
+\begin{align*}
+	\cos (\theta)                                              & =\frac{d}{\|\vect{f}\|} \\
+	\|\vect{f}\|\cos (\theta)                                  & =d                      \\
+	\frac{\|\vect{n}\|\|\vect{f}\|\cos (\theta)}{\|\vect{n}\|} & =d                      \\
+	\frac{\vect{n}\cdot\vect{f}}{\|\vect{n}\|}                 & =d                      \\
+	\frac{\vect{n}\cdot(\vect{x_1}-\vect{x_0})}{\|\vect{n}\|}  & =d                      \\
+	\frac{Ax_1+By_1+Cz_1-D}{\sqrt{A^2+B^2+C^2}}                & =d
+\end{align*}
 \end{document}
