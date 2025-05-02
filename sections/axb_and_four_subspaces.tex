@@ -2,33 +2,144 @@
 
 \begin{document}
 
-\subsection{Linear systems}
-
 \begin{definition}[Matrix multiplication]
-	If $\vect{A} \in \mathbb{R}^{m\times n}$ and $\vect{B} \in \mathbb{R}^{n\times m}$, then
+	If $\vect{A}$ is a matrix of size $m\times n$ and $\vect{B}$ is a matrix of size $n\times p$, then
 	\begin{align*}
 		\vect{A}\vect{B} & =
 		\begin{bmatrix}
-			a_{11} & a_{12} & \dots  & a_{1n} \\
-			a_{21} & a_{22} & \dots  & a_{2n} \\
+			a_{11} & a_{12} & \cdots & a_{1n} \\
+			a_{21} & a_{22} & \cdots & a_{2n} \\
 			\vdots & \vdots & \ddots & \vdots \\
-			a_{m1} & a_{m2} & \dots  & a_{mn}
+			a_{m1} & a_{m2} & \cdots & a_{mn}
 		\end{bmatrix}
 		\begin{bmatrix}
-			b_{11} & b_{12} & \dots  & b_{1m} \\
-			b_{21} & b_{22} & \dots  & b_{2m} \\
+			b_{11} & b_{12} & \cdots & b_{1p} \\
+			b_{21} & b_{22} & \cdots & b_{2p} \\
 			\vdots & \vdots & \ddots & \vdots \\
-			b_{n1} & b_{m2} & \dots  & b_{nm}
-		\end{bmatrix}                        \\
+			b_{n1} & b_{n2} & \cdots & b_{np}
+		\end{bmatrix}                                                                                                      \\
 		                 & =\begin{bmatrix}
-			                    a_{11}x_1+a_{12}x_2+\dots +a_{1n}x_n \\
-			                    a_{21}x_1+a_{22}x_2+\dots +a_{2n}x_n \\
-			                    \vdots                               \\
-			                    a_{m1}x_1+a_{m2}x_2+\dots +a_{mn}x_n \\
+			                    a_{11}b_{11}+\cdots +a_{1n}b_{n1} & a_{11}b_{12}+\cdots +a_{1n}b_{n2} & \cdots & a_{11}b_{1p}+\cdots +a_{1n}b_{np} \\
+			                    a_{21}b_{11}+\cdots +a_{2n}b_{n1} & a_{21}b_{12}+\cdots +a_{2n}b_{n2} & \cdots & a_{21}b_{1p}+\cdots +a_{2n}b_{np} \\
+			                    \vdots                            & \vdots                            & \ddots & \vdots                            \\
+			                    a_{m1}b_{11}+\cdots +a_{mn}b_{n1} & a_{m1}b_{12}+\cdots +a_{mn}b_{n2} & \cdots & a_{m1}b_{1p}+\cdots +a_{mn}b_{np}
 		                    \end{bmatrix}
 	\end{align*}
-	Notice that the result of $\vect{A}\vect{x}$ is a vector in $\mathbb{R}^m$.
+	This is like taking the dot product of the rows of $\vect{A}$ with the
+	columns of $\vect{B}$. Notice that the result of $\vect{A}\vect{B}$
+	is a matrix of size $m\times p$. This definition is extended to matrix-vector
+	multiplication by treating a $n$-dimensional vector as a matrix of size $n\times 1$.
+
+	In the case of matrix-vector multiplication, an equivalent
+	and commonly more useful computation is taking the linear combination of the
+	column vectors of $\vect{A}$ where the scalars are the corresponding
+	components in $\vect{x}$; if $\vect{A}=\begin{bmatrix}\vect{v_1}&\vect{v_2}&\cdots&\vect{v_n}\end{bmatrix}$,
+	then $\vect{A}\vect{x}=x_1\vect{v_1}+x_2\vect{v_2}+\cdots +x_n\vect{v_n}$.
 \end{definition}
-If we define $\vect{A}=\begin{bmatrix}\vect{v_1}&\vect{v_2}&\dots&\vect{v_n}\end{bmatrix}$ where $\vect{v_i}$
-is the column vector $\begin{bmatrix}a_{1i}\\a_{2i}\\\vdots\\a_{mi}\end{bmatrix}$,
+
+\subsection{Elimination with matrices}
+
+We can set up a \textit{coefficient matrix} to solve a linear system of equations.
+Then, in the process called \textit{Gaussian elimination}, we manipulate the
+rows of the matrix by combining different multiples of each row. The
+desired result is a matrix in \textit{row echelon form}, which contains
+\textit{pivot entries} in each column. A pivot entry is a nonzero entry
+which sits below and to the right of the previous pivot entry.
+Every entry under the pivot entry must be zero. The first entry
+of a matrix in row echelon form should be a pivot entry.
+
+\begin{example}
+	Solve the following linear system:
+	\[\begin{array}{rrrrrrr}
+			x  & + & 2y & + & z & = & 2  \\
+			3x & + & 8y & + & z & = & 12 \\
+			   &   & 4y & + & z & = & 2
+		\end{array}\]
+\end{example}
+
+\begin{solution} \label{sol:linear_sys_1}
+	Let $\vect{A}$ be the coefficient matrix. We will use Gaussian elimination to
+	put $\vect{A}$ in row echelon form. For the sake of example, we will not augment
+	the matrix yet.
+	\[\vect{A}=\begin{bmatrix}1&2&1\\3&8&1\\0&4&1\end{bmatrix}
+		\xrightarrow{\vect{r_2}-3\vect{r_1}} \begin{bmatrix}1&2&1\\0&2&-2\\0&4&1\end{bmatrix}
+		\xrightarrow{\vect{r_3}-2\vect{r_2}} \begin{bmatrix}\underline{1}&2&1\\0&\underline{2}&-2\\0&0&\underline{5}\end{bmatrix}=\vect{U} \]
+	The underlined entries in the $\vect{U}=\operatorname{ref}(\vect{A})$ are the pivot entries.
+	While this example worked out well (we were able to find $\operatorname{ref}(\vect{A})$),
+	the process is not always straightforward. For example, if the first original
+	entry of $\vect{A}$ was $0$, we would have to swap the first row with a suitable row beneath.
+	Likewise, if we came across a zero in a pivot position in a later step, we could again try to exchange
+	the row with a suitable row beneath. Still, there are cases where a pivot entry cannot be found.
+
+	Now, let's repeat the same process but with an augmented matrix this time.
+	An \textit{augmented matrix} adds the column containing the solutions to
+	the coefficient matrix.
+	\[\left[\begin{array}{rrr|r}
+				1 & 2 & 1 & 2  \\
+				3 & 8 & 1 & 12 \\
+				0 & 4 & 1 & 2
+			\end{array}\right]\to
+		\left[\begin{array}{rrr|r}
+				1 & 2 & 1  & 2 \\
+				0 & 2 & -2 & 6 \\
+				0 & 4 & 1  & 2
+			\end{array}\right]\to
+		\left[\begin{array}{rrr|r}
+				1 & 2 & 1  & 2   \\
+				0 & 2 & -2 & 6   \\
+				0 & 0 & 5  & -10
+			\end{array}\right]\]
+	Now, we can rewrite the system of equations:
+	\begin{align*}
+		x+2y+z & =2 & 2y-2z & =6 & 5z & =-10 \\
+	\end{align*}
+	\[z=-2\]
+	\[2y-2(-2)=6\implies y=1\]
+	\[x+2(1)+(-2)=2\implies x=2\]
+	\flushright
+	\qedsymbol
+\end{solution}
+
+\begin{solution}
+	Now, let's solve the same system using matrix multiplication to show our steps.
+	First of all, suppose $\vect{x} \in \mathbb{R}^n$ and $\vect{B}=\begin{bmatrix}\vect{r_1}\\\vdots\\\vect{r_n}\end{bmatrix}$
+	where $\vect{r_i} \in \mathbb{R}^m$ is a row vector. Then,
+	\begin{align*}
+		\vect{x}^T\vect{B} & =\begin{bmatrix}x_1&\cdots&x_n\end{bmatrix}\begin{bmatrix}\vect{r_1}\\\vdots\\\vect{r_n}\end{bmatrix} \\
+		                   & =x_1\vect{r_1}+x_2\vect{r_2}+\cdots +x_n\vect{r_n}
+	\end{align*}
+	Note that the result is a row vector of size $1\times m$. This row-matrix
+	multiplication, which yields a linear combination of the rows of a matrix,
+	is analagous to matrix-vector multiplication which yields a linear
+	combination of the columns of a matrix.
+
+	We can apply similar logic to show the matrix multiplication performed
+	to get $\vect{A}$ to $\vect{U}$. Consider
+	the operation
+	\[\begin{bmatrix}\vect{r_1}\\\vect{r_2}\\\vect{r_3}\end{bmatrix}
+		\to[\vect{r_1}].\]
+	Clearly, we can represent this operation using this row-matrix product:
+	\[\begin{bmatrix}1&0&0\end{bmatrix}\begin{bmatrix}\vect{r_1}\\\vect{r_2}\\\vect{r_3}\end{bmatrix}=[\vect{r_1}].\]
+	Now, consider this operation:
+	\[\begin{bmatrix}\vect{r_1}\\\vect{r_2}\\\vect{r_3}\end{bmatrix}\to\begin{bmatrix}\vect{r_1}\\\vect{r_2}\\\vect{r_3}\end{bmatrix}.\]
+	Firstly, the matrix we select should have a size of $3\times 3$. The first row of the result
+	is $\vect{r_1}$, just like in the previous example. So, it makes sense to make the first row
+	of the matrix $\begin{bmatrix}1&0&0\end{bmatrix}$, just like before. Similarly, to get
+	$\vect{r_2}$ in the second row of the result, we can make the second row
+	of the matrix $\begin{bmatrix}0&1&0\end{bmatrix}$. Then, we do the same for
+	the third row. The matrix multiplication looks like this:
+	\[\begin{bmatrix}1&0&0\\0&1&0\\0&0&1\end{bmatrix}\begin{bmatrix}\vect{r_1}\\\vect{r_2}\\\vect{r_3}\end{bmatrix}=\begin{bmatrix}\vect{r_1}\\\vect{r_2}\\\vect{r_3}\end{bmatrix}\]
+	The matrix we just created is a special matrix called the \textit{identity matrix}. Specifically,
+	this is a $3\times 3$ identity matrix, typically labelled $I_3$. In general, a $n\times n$ identity matrix
+	$I_n$ is a square matrix with ones along its diagonal and zeros everywhere else. An identity matrix
+	has the property that $I_m\vect{C}=\vect{C}$ where $\vect{C}$ is a $m\times n$ matrix.
+
+	Going back to the original problem, we can use the fact that changing the
+	$i$th row of the matrix we select (we'll call this $\vect{E_{21}}$ because it removes the entry at row 2, column 1)
+	only affects the $i$th row of the resulting matrix. Let's change the identity matrix to make it perform the first
+	row operation from Solution \ref{sol:linear_sys_1} (assigning row $2$ to $\vect{r_2}-3\vect{r_1}$):
+	\[\vect{E_{21}}\vect{A}=\begin{bmatrix}1&0&0\\-3&1&0\\0&0&1\end{bmatrix}\begin{bmatrix}1&2&1\\3&8&1\\0&4&1\end{bmatrix}=\begin{bmatrix}1&2&1\\0&2&-2\\0&4&1\end{bmatrix}\]
+	We'll repeat the process:
+	\[\vect{E_{32}}(\vect{E_{21}\vect{A}})=\begin{bmatrix}1&0&0\\0&1&0\\0&-2&1\end{bmatrix}\begin{bmatrix}1&2&1\\0&2&-2\\0&4&1\end{bmatrix}=\begin{bmatrix}1&2&1\\0&2&-2\\0&0&5\end{bmatrix}\]
+\end{solution}
 \end{document}
